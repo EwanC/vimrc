@@ -23,11 +23,19 @@ set undofile
 set undodir=$HOME/.vim/undodir
 
 let mapleader = " "
+let g:indentLine_indentLevel = 4
+
+"highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+" bad tabs
+match ExtraWhitespace /[^\t]\zs\t\+/
+"trailing whitespace not at the start of a new line
+match ExtraWhitespace /\s\+\%#\@<!$/
 
 "tab between open windows
 noremap <leader><Tab> <C-w>w
 
-"new vertical window  
+"new vertical window
 nnoremap <leader>v <C-w>v
 
 "new hotizonatal window
@@ -71,4 +79,5 @@ augroup END
 
 call plug#begin('~/.vim/plugged')
 Plug 'git://github.com/airblade/vim-gitgutter.git'
+Plug 'git://github.com/Yggdroot/indentLine.git'
 call plug#end()
