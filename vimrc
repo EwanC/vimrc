@@ -11,9 +11,12 @@ set shiftwidth=4
 set hlsearch
 set incsearch
 
+"Use my own colour scheme
+colorscheme ewan_colour
+
 filetype plugin indent on
 
-" nasm syntax higlighting
+" nasm syntax highlighting
 autocmd BufNewFIle,BufRead *.asm setfiletype nasm
 
 set showcmd
@@ -38,17 +41,21 @@ noremap <leader><Tab> <C-w>w
 "new vertical window
 nnoremap <leader>v <C-w>v
 
-"new hotizonatal window
+"new horizontal window
 nnoremap <leader>s <C-w>s
 
 "jumplist back
 noremap <leader><BS> <C-o>
 
+" Source the vimrc file after saving it
+if has("autocmd")
+    autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
 
-" set spellcheck language
 set spelllang=en_gb
 set spell
 
